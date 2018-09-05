@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>
+      js执行机制
+    </title>
+  </head>
+  <body style="padding-left: 40px">
+    <br />
+    js是单线程语言： 接近用户，考虑到线程安全问题（线程锁，单线程）<br />
+    <br />
+    js首先将整体的script代码作为一次宏任务，<br />
+    执行完之后执行所有的微任务，微任务执行完之后再去执行一次宏任务，<br />
+    再去执行所有的微任务，构成了事件循环<br />
+
+    如图所示：<br />
+    <img src="./jsExecution.png" />
+
+  </body>
+</html>
