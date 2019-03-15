@@ -1,0 +1,36 @@
+前端安全和防护
+cxx 跨站脚本攻击  注入恶意的代码   输入诓过滤，页面输出特殊字符转义
+csrf 跨站请求伪造   劫持你的cookie去做一些事情   在一个已经输入信息教研过登录的页面，引导你进入另一个页面进行操作
+      获取你的cookie信息，然后去做一些其他的事情
+
+界面劫持   比如做一个类似百度的页面，然后诱导你输入一些个人信息，达到不为人知的目的
+
+
+
+前端性能
+DNS预解析  <link rel="dns-prefetch" href="//yuchengkai.cn" />
+缓存  分为强缓存和协商缓存
+  强缓存通过两种响应头实现： Expires和Cache-Control。抢缓存表示在缓存期间不需要请求
+    Expires表示资源会在某个时期后国旗，需要再次请求，但是受限于本地时间，如果修改了本地时间缓存就会失效
+    Cache-Control优先级高于Expires max-age=30表示缓存将会在30秒后过期
+  协商缓存：
+    强缓存过期了，我们使用协商缓存来解决问题，协商缓存需要请求，如果缓存有效会返回304
+    协商缓存需要客户端和服务端共同实现，和抢婚村一样，也有两种实现方式
+    (1)last-modified和if-modified-since
+    last-modified表示本地文件的最后修改日期，if-modified-since会将last-modified的值发送给服务器，询问服务器
+      在该日期后资源是否有更新，有更新的话会将新的资源返回回来
+    (2)Etag和if-none-match
+      Etag类似于指纹，If-none-match会将之前的etag发送给服务器，询问该资源Etag是否有变动，有变动的话就将新的资源
+      发送回来，Etag的优先级高于last-modified
+使用http/2.0
+  2.0版本中引入了多路复用，能让多个请求使用同一个Tcp链接，极大的加快了网页的加载速度，并且还支持了header压缩
+    进一步较少了请求的数据大小
+  1.1时代每次请求都需要建立和断开，消耗了好多RTT时间，并且由于TCP慢启动的原因，加载体积大的文件会需要更多的时间
+预加载和预渲染
+  预加载  <link rel="preload" href="http://example.com" />
+  预渲染  <link rel="prerender" href="http://example.com" />
+懒执行
+懒加载
+
+
+

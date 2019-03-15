@@ -16,7 +16,7 @@ function quickSort(array) {
         right.push(array[i])
       }
     }
-    return quickSort(left).concat(array[provt], quickSort(right))
+    return quickSort(left).concat([provt], quickSort(right))
   }
 }
 // 替换手机号中间4位为*

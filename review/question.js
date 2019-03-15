@@ -34,23 +34,19 @@ function constantDedupe(str) {
   }
   return arrayDedupe.join('')
 }
-// 实现栈的先进后出功能
-function NumberStack() {
-  this.stack=[];
-  this.maxStack =[];
-}
-NumberStack.prototype.push = function(num){
-  if (Object.prototype.toString.call(num)){
-
-  }
-}
-// 实现Array.prototype.reduce函数
-// 累加器 4个参数 (total, current, Arr, base)
-
-function reduce(total, current, Arr, base) {
-
-}
-
-// 实现Function.prototype.bind函数
 
 // 写一个快速排序算法
+function quickSort(array) {
+  const left = []
+  const right = []
+  const pivotIndex = Math.floor(array.length/2)
+  const pivot = array.splice(pivotIndex,1)[0]
+  for(let i=0; i<array.lenth; i++) {
+    if (array[i] > pivot) {
+      right.push(array[i])
+    } else {
+      left.push(array[i])
+    }
+  }
+  return quickSort(left).concat([pivot], quickSort(right))
+}
