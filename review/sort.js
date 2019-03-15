@@ -106,6 +106,7 @@ new new Foo().getName();
 // this指向
 
 // 求两个数组的交集和并集
+
 // bind call apply
 // reduce
 // 手动实现promise
@@ -148,4 +149,53 @@ new new Foo().getName();
    * 想要输出01234的话，var改为let
    * 使用闭包 
    *  */
+
+   function fn(){
+     console.log(this.name)
+   }
+   var obj = {
+     name: 'obj',
+     fn: fn
+   }
+
+   var fullName = '三角形'
+   var obj = {
+     fullName: '方块猴',
+     prop: {
+       fullName: '圆圆鼠',
+       getFullName: function(){
+         return this.fullName
+       }
+     }
+   }
+   obj.prop.getFullName()
+
+   var getFullName = obj.prop.getFullName;
+   getFullName()
+
+
+   function test() {
+     try{
+       console.log(1)
+       setTimeout(() => {
+         console.log(2)
+       }, 100)
+       setTimeout(() => {
+         console.log(3)
+         throw new Error(5)
+       })
+       console.log(4)
+     }catch(e){
+       console.log(e)
+     }
+   }
+
+   function protectPhone(phone){
+    if (phone.toString().length !== 11) {
+      console.log('手机号有误')
+      return
+    } 
+    const tel = tel.splice(3,4, '****')
+    return tel
+   }
 
